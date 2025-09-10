@@ -38,6 +38,7 @@ i18n.use(initReactI18next).init({
         hot_dishes: "Hot Dishes",
         salad: "Salad",
         seafood: "Seafood",
+        drinks: "Drinks",
       },
     },
     ru: {
@@ -78,6 +79,7 @@ i18n.use(initReactI18next).init({
         hot_dishes: "Горячие блюда",
         salad: "Салат",
         seafood: "Морепродукты",
+        drinks: "Напитки",
       },
     },
     uz: {
@@ -116,6 +118,7 @@ i18n.use(initReactI18next).init({
         hot_dishes: "Issiq taomlar",
         salad: "Salat",
         seafood: "Dengiz mahsulotlari",
+        drinks: "Ichimliklar",
       },
     },
     zh: {
@@ -153,6 +156,7 @@ i18n.use(initReactI18next).init({
         hot_dishes: "热菜",
         salad: "沙拉",
         seafood: "海鲜",
+        drinks: "饮料",
       },
     },
   },
