@@ -5,6 +5,7 @@ import "@mantine/core/styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BasketPage } from "./pages/basket";
 import { HomePage } from "./pages/home";
+import { HistoryPage } from "./pages/history";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/basket",
     element: <BasketPage />,
+  },
+  {
+    path: "/history",
+    element: <HistoryPage />,
   },
 ]);
 

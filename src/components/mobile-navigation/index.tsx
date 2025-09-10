@@ -1,5 +1,5 @@
 import { ActionIcon, Group, Paper, Badge, Box } from "@mantine/core";
-import { IconHome, IconShoppingCart } from "@tabler/icons-react";
+import { IconHistory, IconHome, IconShoppingCart } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../../store";
 
@@ -22,7 +22,7 @@ export const MobileNavigation = () => {
       <Group justify="space-around">
         <ActionIcon
           p="20px 10px"
-          w="45%"
+          w="30%"
           variant="subtle"
           size="lg"
           color="red"
@@ -31,7 +31,7 @@ export const MobileNavigation = () => {
           <IconHome size={24} />
         </ActionIcon>
 
-        <Box style={{ position: "relative", width: "45%" }}>
+        <Box style={{ position: "relative", width: "30%" }}>
           <ActionIcon
             p="20px 10px"
             w="100%"
@@ -66,6 +66,16 @@ export const MobileNavigation = () => {
             </Badge>
           )}
         </Box>
+        <ActionIcon
+          p="20px 10px"
+          w="30%"
+          variant="subtle"
+          size="lg"
+          color="red"
+          onClick={() => navigate("/history")}
+        >
+          <IconHistory size={24} />
+        </ActionIcon>
       </Group>
     </Paper>
   );

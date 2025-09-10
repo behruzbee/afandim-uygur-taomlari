@@ -87,17 +87,45 @@ export const HomePage = () => {
         </Text>
 
         <Flex justify="center" gap="lg" wrap="wrap">
-          <Button onClick={() => selectLanguage("ru")} radius="50%" w={80} h={80} variant="light" color="red">
-            🇷🇺
+          <Button
+            onClick={() => selectLanguage("ru")}
+            radius="50%"
+            w={80}
+            h={80}
+            variant="light"
+            color="red"
+          >
+            <Text size="50px">🇷🇺</Text>
           </Button>
-          <Button onClick={() => selectLanguage("en")} radius="50%" w={80} h={80} variant="light" color="blue">
-            🇬🇧
+          <Button
+            onClick={() => selectLanguage("en")}
+            radius="50%"
+            w={80}
+            h={80}
+            variant="light"
+            color="blue"
+          >
+            <Text size="50px">🇬🇧</Text>
           </Button>
-          <Button onClick={() => selectLanguage("uz")} radius="50%" w={80} h={80} variant="light" color="green">
-            🇺🇿
+          <Button
+            onClick={() => selectLanguage("uz")}
+            radius="50%"
+            w={80}
+            h={80}
+            variant="light"
+            color="green"
+          >
+            <Text size="50px">🇺🇿</Text>
           </Button>
-          <Button onClick={() => selectLanguage("zh")} radius="50%" w={80} h={80} variant="light" color="yellow">
-            🇨🇳
+          <Button
+            onClick={() => selectLanguage("zh")}
+            radius="50%"
+            w={80}
+            h={80}
+            variant="light"
+            color="yellow"
+          >
+            <Text size="50px">🇨🇳</Text>
           </Button>
         </Flex>
       </Modal>

@@ -263,7 +263,7 @@ ${orderText}
                         ${item.price.toFixed(2)} x {item.quantity}
                       </Text>
 
-                      <Group mt='4px' style={{ flexWrap: "wrap" }}>
+                      <Group mt="4px" style={{ flexWrap: "wrap" }}>
                         <Button
                           size="xs"
                           style={{ minWidth: 28, height: 28 }}

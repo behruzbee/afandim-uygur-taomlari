@@ -5,7 +5,7 @@ i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: {
-        selectLanguage: "Tilni tanlang",
+        selectLanguage: "Select language",
         cart: "Cart",
         emptyCart: "No dishes in the cart yet",
         total: "Total",
@@ -32,6 +32,8 @@ i18n.use(initReactI18next).init({
         order_confirmed: "Order for table {{table}} confirmed for ${{total}}!",
         qr_not_match: "❌ QR code does not match the selected table!",
         invalid_qr: "Invalid QR code!",
+        history_empty: "No orders yet",
+        order_history: "Order History",
       },
     },
     ru: {
@@ -66,6 +68,8 @@ i18n.use(initReactI18next).init({
         qr_not_match: "❌ QR-код не совпадает с выбранным столом!",
         invalid_qr: "Некорректный QR-код!",
         selectLanguage: "Выберите язык",
+        history_empty: "История заказов пуста",
+        order_history: "История заказов",
       },
     },
     uz: {
@@ -98,6 +102,8 @@ i18n.use(initReactI18next).init({
         qr_not_match: "❌ QR-kod tanlangan stolga mos emas!",
         invalid_qr: "Noto‘g‘ri QR-kod!",
         selectLanguage: "Tilni tanlang",
+        history_empty: "Buyurtmalar yo‘q",
+        order_history: "Buyurtmalar tarixi",
       },
     },
     zh: {
@@ -129,6 +135,8 @@ i18n.use(initReactI18next).init({
         order_confirmed: "桌子 {{table}} 的订单已确认，总额 ${{total}}！",
         qr_not_match: "❌ 二维码与所选桌子不匹配！",
         invalid_qr: "二维码无效！",
+        history_empty: "暂无订单",
+        order_history: "订单历史",
       },
     },
   },

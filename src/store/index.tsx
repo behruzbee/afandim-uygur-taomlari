@@ -10,11 +10,16 @@ export type LocalizedText = {
 
 export type CartItem = {
   id: number;
-  title: LocalizedText; // 👈 теперь объект переводов
+  title: LocalizedText;
   price: number;
   image: string;
   quantity: number;
   tableId: string;
+};
+
+export type Order = {
+  items: CartItem[];
+  timestamp: number;
 };
 
 type CartStore = {
@@ -27,6 +32,8 @@ type CartStore = {
   decreaseQuantity: (id: number) => void;
   clearCart: () => void;
   total: () => number;
+  history: Order[];
+  addToHistory: () => void;
 };
 
 export const useCartStore = create<CartStore>()(
@@ -34,6 +41,7 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       items: [],
       selectedTableId: null,
+      history: [],
 
       setTableId: (id) => set({ selectedTableId: id }),
 
@@ -89,7 +97,10 @@ export const useCartStore = create<CartStore>()(
             .filter((i) => i.quantity > 0),
         })),
 
-      clearCart: () => set({ items: [] }),
+      clearCart: () => {
+        get().addToHistory();
+        set({ items: [] });
+      },
 
       total: () =>
         get().items.reduce(
@@ -99,6 +110,19 @@ export const useCartStore = create<CartStore>()(
               : sum,
           0
         ),
+
+      addToHistory: () =>
+        set((state) => ({
+          history: [
+            ...state.history,
+            {
+              items: state.items.filter(
+                (i) => i.tableId === state.selectedTableId
+              ),
+              timestamp: Date.now(),
+            },
+          ],
+        })),
     }),
     {
       name: "cart-storage",
