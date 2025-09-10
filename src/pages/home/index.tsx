@@ -151,7 +151,7 @@ export const HomePage = () => {
         <Navbar />
       </AppShell>
 
-      <Container mt="100px">
+      <Container mt="100px" mb="100px">
         <Text size="20px" fw={600} mb="md">
           {t("table")}: {tableId}
         </Text>
