@@ -67,7 +67,7 @@ export const BasketPage = () => {
         const orderText = items
           .map(
             (i) =>
-              `🍽 <b>${i.title}</b> — ${i.quantity} x $${i.price.toFixed(2)}`
+              `🍽 <b>${i.title.ru} | ${i.title.zh}</b> — ${i.quantity} x $${i.price.toFixed(2)}`
           )
           .join("\n");
 
