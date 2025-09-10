@@ -141,11 +141,12 @@ export const HomePage = () => {
 
         <Search
           categories={[
-            { label: t("all"), value: "all" },
+            { label: t("shashlik"), value: "shashlik" },
+            { label: t("hot_dishes"), value: "hot_dishes" },
+            { label: t("salad"), value: "salad" },
+            { label: t("seafood"), value: "seafood" },
             { label: t("lagman"), value: "lagman" },
             { label: t("soups"), value: "soups" },
-            { label: t("dumplings"), value: "dumplings" },
-            { label: t("rice"), value: "rice" },
           ]}
           onSearchChange={(q) => setQuery(q)}
           onCategoryChange={(c) => setCategory(c)}
