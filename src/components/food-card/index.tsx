@@ -50,7 +50,7 @@ export const FoodCard = ({
       </Modal>
 
       <Card
-        p="0px"
+        p="5px"
         shadow="sm"
         radius="lg"
         withBorder
