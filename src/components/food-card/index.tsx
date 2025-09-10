@@ -54,47 +54,96 @@ export const FoodCard = ({
         shadow="sm"
         radius="lg"
         withBorder
-        style={{ display: "flex", alignItems: "center", gap: 16 }}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 12,
+          flexWrap: "wrap",
+          minHeight: 115,
+          width: "100%",
+          cursor: "pointer",
+        }}
         onClick={() => setOpened(true)}
       >
-        <Flex h="115px" w="100%" justify="space-between">
-          <Box h="115px" w="96px">
-            <Image
-              src={image}
-              alt={title}
-              h="100%"
-              fit="cover"
-              style={{ cursor: "pointer" }}
-            />
-          </Box>
+        {/* Image */}
+        <Box
+          style={{
+            flex: "0 0 96px",
+            height: 115,
+            overflow: "hidden",
+            borderRadius: 8,
+            flexShrink: 0,
+          }}
+        >
+          <Image
+            src={image}
+            alt={title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </Box>
 
-          {/* Right: Details */}
-          <Flex p="16px" direction="column" style={{ flex: 1 }} gap={4}>
-            <Text size="16px" lh="24px" fw={700} c="#1F2937">
-              {title}
+        {/* Right: Details */}
+        <Flex
+          direction="column"
+          style={{ flex: 1, minWidth: 120, maxWidth: "calc(100% - 110px)" }}
+          gap={4}
+        >
+          <Text
+            size="16px"
+            fw={700}
+            c="#1F2937"
+            style={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {title}
+          </Text>
+          <Text
+            size="12px"
+            c="#6B7280"
+            style={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {description}
+          </Text>
+
+          <Group justify="space-between" mt="auto" align="center" wrap="wrap">
+            <Text
+              size="16px"
+              fw="bold"
+              ff="monospace"
+              c="#DC143C"
+              style={{ flexShrink: 0 }}
+            >
+              {price}
             </Text>
-            <Text size="12px" c="#6B7280">
-              {description}
-            </Text>
 
-            <Group justify="space-between" mt="15px" align="center">
-              <Text size="16px" fw="bold" ff="monospace" c="#DC143C">
-                {price}
-              </Text>
-
-              <Button
-                bdrs="8px"
-                color="#DC143C"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onAdd && onAdd();
-                }}
-                style={{ minWidth: 70 }}
-              >
-                {t("add")}
-              </Button>
-            </Group>
-          </Flex>
+            <Button
+              bdrs="8px"
+              color="#DC143C"
+              style={{ minWidth: 70 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onAdd && onAdd();
+              }}
+            >
+              {t("add")}
+            </Button>
+          </Group>
         </Flex>
       </Card>
     </>

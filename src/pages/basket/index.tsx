@@ -67,7 +67,9 @@ export const BasketPage = () => {
         const orderText = items
           .map(
             (i) =>
-              `🍽 <b>${i.title.ru} | ${i.title.zh}</b> — ${i.quantity} x $${i.price.toFixed(2)}`
+              `🍽 <b>${i.title.ru} | ${i.title.zh}</b> — ${
+                i.quantity
+              } x $${i.price.toFixed(2)}`
           )
           .join("\n");
 
@@ -183,77 +185,118 @@ ${orderText}
                 </Modal>
 
                 <Card
-                  p="0px"
+                  p="8px"
                   shadow="sm"
                   radius="lg"
                   withBorder
-                  style={{ display: "flex", alignItems: "center", gap: 16 }}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: 12,
+                    flexWrap: "wrap",
+                    minHeight: 115,
+                    width: "100%",
+                  }}
                   onClick={() => setOpenedId(item.id)}
                 >
-                  <Flex h="115px" w="100%" justify="space-between">
-                    <Box h="115px" w="96px">
-                      <Image
-                        src={item.image}
-                        alt={
-                          item.title[
-                            i18n.language as keyof typeof item.title
-                          ] ?? item.title.en
-                        }
-                        h="100%"
-                        fit="cover"
-                        style={{ cursor: "pointer" }}
-                      />
-                    </Box>
+                  <Box
+                    style={{
+                      flex: "0 0 96px",
+                      height: 115,
+                      overflow: "hidden",
+                      borderRadius: 8,
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={
+                        item.title[i18n.language as keyof typeof item.title] ??
+                        item.title.en
+                      }
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Box>
+
+                  <Flex
+                    direction="column"
+                    style={{
+                      flex: 1,
+                      minWidth: 120,
+                      maxWidth: "calc(100% - 110px)",
+                    }}
+                    gap={4}
+                  >
+                    <Text
+                      size="lg"
+                      fw={700}
+                      style={{
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                      }}
+                    >
+                      {item.title[i18n.language as keyof typeof item.title] ??
+                        item.title.en}
+                    </Text>
 
                     <Flex
-                      p="16px"
-                      direction="column"
-                      style={{ flex: 1 }}
-                      gap={4}
+                      justify="space-between"
+                      align="center"
+                      wrap="wrap"
+                      mt={4}
                     >
-                      <Text mt="sm" fw={700} size="lg">
-                        {item.title[i18n.language as keyof typeof item.title] ??
-                          item.title.en}
+                      <Text
+                        size="16px"
+                        fw="bold"
+                        ff="monospace"
+                        c="#DC143C"
+                        style={{ flexShrink: 0 }}
+                      >
+                        ${item.price.toFixed(2)} x {item.quantity}
                       </Text>
 
-                      <Group justify="space-between" mt="5px" align="center">
-                        <Text size="16px" fw="bold" ff="monospace" c="#DC143C">
-                          ${item.price.toFixed(2)} x {item.quantity}
-                        </Text>
-
-                        <Group>
-                          <Button
-                            size="xs"
-                            bg="#DC143C"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              decreaseQuantity(item.id);
-                            }}
-                          >
-                            -
-                          </Button>
-                          <Button
-                            size="xs"
-                            bg="#DC143C"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              increaseQuantity(item.id);
-                            }}
-                          >
-                            +
-                          </Button>
-                          <Button
-                            size="xs"
-                            color="red"
-                            variant="light"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              removeItem(item.id);
-                            }}
-                          >
-                            {t("remove")}
-                          </Button>
-                        </Group>
+                      <Group mt='4px' style={{ flexWrap: "wrap" }}>
+                        <Button
+                          size="xs"
+                          style={{ minWidth: 28, height: 28 }}
+                          bg="#DC143C"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            decreaseQuantity(item.id);
+                          }}
+                        >
+                          -
+                        </Button>
+                        <Button
+                          size="xs"
+                          style={{ minWidth: 28, height: 28 }}
+                          bg="#DC143C"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            increaseQuantity(item.id);
+                          }}
+                        >
+                          +
+                        </Button>
+                        <Button
+                          size="xs"
+                          color="red"
+                          variant="light"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            removeItem(item.id);
+                          }}
+                        >
+                          {t("remove")}
+                        </Button>
                       </Group>
                     </Flex>
                   </Flex>
