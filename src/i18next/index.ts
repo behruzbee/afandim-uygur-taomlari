@@ -39,6 +39,7 @@ i18n.use(initReactI18next).init({
         salad: "Salad",
         seafood: "Seafood",
         drinks: "Drinks",
+        currency: "UZS",
       },
     },
     ru: {
@@ -80,6 +81,7 @@ i18n.use(initReactI18next).init({
         salad: "Салат",
         seafood: "Морепродукты",
         drinks: "Напитки",
+        currency: "сум",
       },
     },
     uz: {
@@ -119,6 +121,7 @@ i18n.use(initReactI18next).init({
         salad: "Salat",
         seafood: "Dengiz mahsulotlari",
         drinks: "Ichimliklar",
+        currency: "so‘m",
       },
     },
     zh: {
@@ -157,6 +160,7 @@ i18n.use(initReactI18next).init({
         salad: "沙拉",
         seafood: "海鲜",
         drinks: "饮料",
+        currency: "苏姆",
       },
     },
   },

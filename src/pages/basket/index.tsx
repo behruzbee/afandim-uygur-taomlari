@@ -260,7 +260,7 @@ ${orderText}
                         c="#DC143C"
                         style={{ flexShrink: 0 }}
                       >
-                        ${item.price.toFixed(2)} x {item.quantity}
+                        {item.price.toFixed(2)} {t("currency")} x {item.quantity}
                       </Text>
 
                       <Group mt="4px" style={{ flexWrap: "wrap" }}>

@@ -166,7 +166,7 @@ export const HomePage = () => {
                 image={food.image}
                 title={food.title[lang]}
                 description={food.description[lang]}
-                price={`$${food.price}`}
+                price={`${food.price} ${t("currency")}`}
                 time={food.time}
                 onAdd={() =>
                   addItem({
