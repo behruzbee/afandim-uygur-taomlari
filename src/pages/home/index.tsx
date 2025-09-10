@@ -141,6 +141,7 @@ export const HomePage = () => {
 
         <Search
           categories={[
+            { label: t("all"), value: "all" },
             { label: t("lagman"), value: "lagman" },
             { label: t("hot_dishes"), value: "hot_dishes" },
             { label: t("seafood"), value: "seafood" },
