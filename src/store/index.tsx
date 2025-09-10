@@ -1,9 +1,16 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+export type LocalizedText = {
+  ru: string;
+  uz: string;
+  en: string;
+  zh: string;
+};
+
 export type CartItem = {
   id: number;
-  title: string;
+  title: LocalizedText; // 👈 теперь объект переводов
   price: number;
   image: string;
   quantity: number;

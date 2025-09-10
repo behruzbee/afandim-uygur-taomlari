@@ -23,7 +23,7 @@ const BOT_TOKEN = import.meta.env.VITE_APP_BOT_TOKEN;
 const CHAT_ID = import.meta.env.VITE_APP_CHAT_ID;
 
 export const BasketPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const {
     items,
@@ -169,12 +169,16 @@ ${orderText}
                 >
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={
+                      item.title[i18n.language as keyof typeof item.title] ??
+                      item.title.en
+                    }
                     radius="md"
                     fit="contain"
                   />
-                  <Text mt="sm" fw={700} size="lg">
-                    {item.title}
+                  <Text size="16px" lh="24px" fw={700} c="#1F2937">
+                    {item.title[i18n.language as keyof typeof item.title] ??
+                      item.title.en}
                   </Text>
                 </Modal>
 
@@ -190,7 +194,11 @@ ${orderText}
                     <Box h="115px" w="96px">
                       <Image
                         src={item.image}
-                        alt={item.title}
+                        alt={
+                          item.title[
+                            i18n.language as keyof typeof item.title
+                          ] ?? item.title.en
+                        }
                         h="100%"
                         fit="cover"
                         style={{ cursor: "pointer" }}
@@ -203,8 +211,9 @@ ${orderText}
                       style={{ flex: 1 }}
                       gap={4}
                     >
-                      <Text size="16px" lh="24px" fw={700} c="#1F2937">
-                        {item.title}
+                      <Text mt="sm" fw={700} size="lg">
+                        {item.title[i18n.language as keyof typeof item.title] ??
+                          item.title.en}
                       </Text>
 
                       <Group justify="space-between" mt="5px" align="center">

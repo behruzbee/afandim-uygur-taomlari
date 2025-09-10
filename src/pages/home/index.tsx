@@ -21,6 +21,8 @@ export const HomePage = () => {
   const { id: tableId } = useParams<{ id: string }>();
   const { t, i18n } = useTranslation();
 
+  const lang = i18n.language as "ru" | "uz" | "en" | "zh";
+
   const addItem = useCartStore((s) => s.addItem);
   const selectedTableId = useCartStore((s) => s.selectedTableId);
   const setTableId = useCartStore((s) => s.setTableId);
@@ -54,7 +56,9 @@ export const HomePage = () => {
 
   const filteredFoods = FOODS.filter((food) => {
     const matchesCategory = category === "all" || food.category === category;
-    const matchesQuery = food.title.toLowerCase().includes(query.toLowerCase());
+    const matchesQuery = food.title[lang]
+      .toLowerCase()
+      .includes(query.toLowerCase());
     return matchesCategory && matchesQuery;
   });
 
@@ -64,7 +68,6 @@ export const HomePage = () => {
 
   return (
     <>
-      {/* 🔥 Модалка выбора языка */}
       {/* 🔥 Модалка выбора языка */}
       <Modal
         opened={languageModalOpen}
@@ -76,7 +79,7 @@ export const HomePage = () => {
         radius="lg"
         overlayProps={{
           backgroundOpacity: 0.6,
-          blur: 8, // 🔥 Blur эффект
+          blur: 8,
         }}
       >
         <Text ta="center" fw={700} size="20px" mb="lg">
@@ -84,64 +87,16 @@ export const HomePage = () => {
         </Text>
 
         <Flex justify="center" gap="lg" wrap="wrap">
-          <Button
-            onClick={() => selectLanguage("ru")}
-            radius="50%"
-            w={80}
-            h={80}
-            style={{
-              fontSize: "28px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-              transition: "transform 0.2s ease",
-            }}
-            variant="light"
-            color="red"
-          >
+          <Button onClick={() => selectLanguage("ru")} radius="50%" w={80} h={80} variant="light" color="red">
             🇷🇺
           </Button>
-          <Button
-            onClick={() => selectLanguage("en")}
-            radius="50%"
-            w={80}
-            h={80}
-            style={{
-              fontSize: "28px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-              transition: "transform 0.2s ease",
-            }}
-            variant="light"
-            color="blue"
-          >
+          <Button onClick={() => selectLanguage("en")} radius="50%" w={80} h={80} variant="light" color="blue">
             🇬🇧
           </Button>
-          <Button
-            onClick={() => selectLanguage("uz")}
-            radius="50%"
-            w={80}
-            h={80}
-            style={{
-              fontSize: "28px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-              transition: "transform 0.2s ease",
-            }}
-            variant="light"
-            color="green"
-          >
+          <Button onClick={() => selectLanguage("uz")} radius="50%" w={80} h={80} variant="light" color="green">
             🇺🇿
           </Button>
-          <Button
-            onClick={() => selectLanguage("zh")}
-            radius="50%"
-            w={80}
-            h={80}
-            style={{
-              fontSize: "28px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-              transition: "transform 0.2s ease",
-            }}
-            variant="light"
-            color="yellow"
-          >
+          <Button onClick={() => selectLanguage("zh")} radius="50%" w={80} h={80} variant="light" color="yellow">
             🇨🇳
           </Button>
         </Flex>
@@ -178,8 +133,8 @@ export const HomePage = () => {
               <FoodCard
                 key={food.id}
                 image={food.image}
-                title={food.title}
-                description={food.description}
+                title={food.title[lang]}
+                description={food.description[lang]}
                 price={`$${food.price}`}
                 time={food.time}
                 onAdd={() =>
