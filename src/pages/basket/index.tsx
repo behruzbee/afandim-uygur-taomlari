@@ -260,7 +260,7 @@ ${orderText}
                         c="#DC143C"
                         style={{ flexShrink: 0 }}
                       >
-                        {item.price.toFixed(2)} {t("currency")} x {item.quantity}
+                        {item.price.toLocaleString()} {t("currency")} x {item.quantity}
                       </Text>
 
                       <Group mt="4px" style={{ flexWrap: "wrap" }}>
@@ -306,7 +306,7 @@ ${orderText}
 
             <Flex justify="space-between" align="center" mt="lg">
               <Text size="18px" fw={700}>
-                {t("total")}: ${total.toFixed(2)}
+                {t("total")}: {total.toLocaleString()} {t("currency")}
               </Text>
               <Button color="green" onClick={() => setScanMode(true)}>
                 {t("checkout")}
