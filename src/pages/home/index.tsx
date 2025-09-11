@@ -142,10 +142,10 @@ export const HomePage = () => {
         <Search
           categories={[
             { label: t("all"), value: "all" },
+            { label: t("shashlik"), value: "shashlik" },
             { label: t("lagman"), value: "lagman" },
             { label: t("hot_dishes"), value: "hot_dishes" },
             { label: t("seafood"), value: "seafood" },
-            { label: t("shashlik"), value: "shashlik" },
             { label: t("salad"), value: "salad" },
             { label: t("soups"), value: "soups" },
             { label: t("drinks"), value: "drinks" },

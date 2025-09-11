@@ -9,7 +9,6 @@ export const MobileNavigation = () => {
   const items = useCartStore((s) => s.items);
 
   const totalQuantity = items
-    .filter((i) => i.tableId === selectedTableId)
     .reduce((sum, i) => sum + i.quantity, 0);
 
   return (

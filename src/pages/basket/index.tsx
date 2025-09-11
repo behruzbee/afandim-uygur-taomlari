@@ -260,7 +260,8 @@ ${orderText}
                         c="#DC143C"
                         style={{ flexShrink: 0 }}
                       >
-                        {item.price.toLocaleString()} {t("currency")} x {item.quantity}
+                        {item.price.toLocaleString()} {t("currency")} x{" "}
+                        {item.quantity}
                       </Text>
 
                       <Group mt="4px" style={{ flexWrap: "wrap" }}>
@@ -304,9 +305,22 @@ ${orderText}
               </div>
             ))}
 
-            <Flex justify="space-between" align="center" mt="lg">
+            <Flex direction="column" justify="start" align="center" mt="lg">
               <Text size="18px" fw={700}>
                 {t("total")}: {total.toLocaleString()} {t("currency")}
+              </Text>
+              <Flex justify="space-between" align="center" mt="sm">
+                <Text size="12px" fw={500}>
+                  {t("service_fee")}: {(total * 0.12).toLocaleString()}{" "}
+                  {t("currency")}
+                </Text>
+              </Flex>
+            </Flex>
+
+            <Flex justify="space-between" align="center" mt="sm">
+              <Text size="18px" fw={700}>
+                {t("grand_total")}: {(total * 1.12).toLocaleString()}{" "}
+                {t("currency")}
               </Text>
               <Button color="green" onClick={() => setScanMode(true)}>
                 {t("checkout")}
